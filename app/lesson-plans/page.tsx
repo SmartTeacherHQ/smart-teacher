@@ -11,7 +11,7 @@ type LessonPlan = {
   topic: string;
   lesson_date: string | null;
   duration_minutes: number | null;
-  objectives: string | null;
+  learning_outcomes: string | null;
   activities: string | null;
   resources: string | null;
 };
@@ -29,7 +29,7 @@ export default function LessonPlansPage() {
     topic: "",
     lesson_date: "",
     duration_minutes: "",
-    objectives: "",
+    learning_outcomes: "",
     activities: "",
     resources: "",
   });
@@ -86,7 +86,7 @@ export default function LessonPlansPage() {
       duration_minutes: form.duration_minutes
         ? Number(form.duration_minutes)
         : null,
-      objectives: form.objectives,
+      learning_outcomes: form.learning_outcomes,
       activities: form.activities,
       resources: form.resources,
     });
@@ -102,7 +102,7 @@ export default function LessonPlansPage() {
         topic: "",
         lesson_date: "",
         duration_minutes: "",
-        objectives: "",
+        learning_outcomes: "",
         activities: "",
         resources: "",
       });
@@ -202,11 +202,11 @@ export default function LessonPlansPage() {
 
           <textarea
             className="w-full rounded-lg border p-3"
-            placeholder="Lesson objectives"
+            placeholder="Lesson learning_outcomes"
             rows={3}
-            value={form.objectives}
+            value={form.learning_outcomes}
             onChange={(e) =>
-              setForm({ ...form, objectives: e.target.value })
+              setForm({ ...form, learning_outcomes: e.target.value })
             }
           />
 
@@ -268,8 +268,8 @@ export default function LessonPlansPage() {
                 {plan.duration_minutes && (
                   <p>Duration: {plan.duration_minutes} minutes</p>
                 )}
-                {plan.objectives && (
-                  <p>Objectives: {plan.objectives}</p>
+                {plan.learning_outcomes && (
+                  <p>learning_outcomes: {plan.learning_outcomes}</p>
                 )}
                 {plan.activities && (
                   <p>Activities: {plan.activities}</p>
