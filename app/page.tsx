@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabase/client";
 import AuthGuard from "./components/AuthGuard";
 import {
   BookOpen,
@@ -22,8 +23,20 @@ const activities = [
 ];
 
 export default function Home() {
+  async function handleSignOut() {
+  await supabase.auth.signOut();
+  window.location.href = "/login";
+}
   return (
     <AuthGuard>
+      <div className="flex justify-end p-4">
+  <button
+    onClick={handleSignOut}
+    className="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+  >
+    Sign Out
+  </button>
+</div>
     <main className="app-shell">
       <aside className="sidebar">
         <div className="brand">
