@@ -1,3 +1,4 @@
+"use client";
 import { supabase } from "@/lib/supabase/client";
 import AuthGuard from "./components/AuthGuard";
 import {
