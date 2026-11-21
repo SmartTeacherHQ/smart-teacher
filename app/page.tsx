@@ -23,6 +23,7 @@ const activities = [
 
 export default function Home() {
   return (
+    <AuthGuard>
     <main className="app-shell">
       <aside className="sidebar">
         <div className="brand">
@@ -74,7 +75,6 @@ export default function Home() {
             {activities.map((item) => {
               const Icon = item.icon;
               return (
-               <AuthGuard> 
                 <article className="activity-card" key={item.title}>
                   <div className={`activity-icon ${item.color}`}><Icon size={23} /></div>
                   <div className="activity-count">{item.count}</div>
